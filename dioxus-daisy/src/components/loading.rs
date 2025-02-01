@@ -37,9 +37,10 @@ pub fn Loading(
             class: if let Some(Color::Primary) = color {"text-primary"},
             class: if let Some(Color::Secondary) = color {"text-secondary"},
             class: if let Some(Color::Success) = color {"text-success"},
-            class: if let Some(Color::Accent) = color {"text-danger"},
-            class: if let Some(Color::Warning) = color {"text-warning"},
+            class: if let Some(Color::Accent) = color {"text-accent"},
             class: if let Some(Color::Info) = color {"text-info"},
+            class: if let Some(Color::Warning) = color {"text-warning"},
+            class: if let Some(Color::Error) = color {"text-error"},
             ..attributes, {children}
         }
     }

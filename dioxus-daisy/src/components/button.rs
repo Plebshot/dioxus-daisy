@@ -56,9 +56,10 @@ pub fn Button(
             class: if let Some(Color::Primary) = color {"btn-primary"},
             class: if let Some(Color::Secondary) = color {"btn-secondary"},
             class: if let Some(Color::Success) = color {"btn-success"},
-            class: if let Some(Color::Accent) = color {"btn-danger"},
+            class: if let Some(Color::Accent) = color {"btn-accent"},
             class: if let Some(Color::Warning) = color {"btn-warning"},
             class: if let Some(Color::Info) = color {"btn-info"},
+            class: if let Some(Color::Error) = color {"btn-error"},
             onclick: move |event| {
                 if let Some(handler) = onclick {
                     handler(event);
