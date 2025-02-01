@@ -41,50 +41,91 @@ pub fn NavBar() -> Element {
                 }
                 Outlet::<Route> {}
             }
-            div { class: "drawer-side z-40", scroll_behavior: "smooth",
-                label {
-                    class: "drawer-overlay",
-                    r#for: "nav-drawer",
-                    aria_label: "Close menu",
-                }
-                aside { class: "bg-base-100 min-h-screen w-80",
-                    div { class: "sm:max-lg:hidden bg-base-100/90 sticky top-0 z-20 navbar items-center gap-2 px-4 py-2 backdrop-blur lg:flex shadow-xs",
-                        span { class: "sm:max-lg:hidden text-lg font-bold",
-                            "🌼 Dioxus DaisyUI Preview"
-                        }
+            SideMenu {}
+        }
+    }
+}
+
+#[component]
+fn SideMenu() -> Element {
+    rsx! {
+        div { class: "drawer-side z-40", scroll_behavior: "smooth",
+            label {
+                class: "drawer-overlay",
+                r#for: "nav-drawer",
+                aria_label: "Close menu",
+            }
+            aside { class: "bg-base-100 min-h-screen w-80",
+                div { class: "sm:max-lg:hidden bg-base-100/90 sticky top-0 z-20 navbar items-center gap-2 px-4 py-2 backdrop-blur lg:flex shadow-xs",
+                    span { class: "sm:max-lg:hidden text-lg font-bold",
+                        "🌼 Dioxus DaisyUI Preview"
                     }
-                    ul { class: "menu w-full px-4 py-0",
-                        li {
-                            h2 { class: "menu-title flex items-center gap-4 px-1.5",
-                                "Actions"
-                            }
-                            ul {
-                                li {
-                                    Link {
-                                        class: "group",
-                                        to: Route::ButtonPreview,
-                                        "Button"
-                                    }
-                                }
-                            }
+                }
+                ul { class: "menu w-full px-4 py-0",
+                     li {
+                        h2 { class: "menu-title flex items-center gap-4 px-1.5",
+                            "Actions"
                         }
-                        li {
-                            h2 { class: "menu-title flex items-center gap-4 px-1.5",
-                                "Feedback"
-                            }
-                            ul {
-                                li {
-                                    Link {
-                                        class: "group",
-                                        to: Route::LoadingPreview,
-                                        "Loading"
-                                    }
+                        ul {
+                            li {
+                                Link {
+                                    class: "group",
+                                    to: Route::ButtonPreview,
+                                    "Button"
                                 }
                             }
                         }
                     }
-                    div { class: "bg-base-100 pointer-events-none sticky bottom-0 flex h-40 [mask-image:linear-gradient(transparent,#000000)]" }
+                    li {
+                        h2 { class: "menu-title flex items-center gap-4 px-1.5",
+                            "Feedback"
+                        }
+                        ul {
+                            li {
+                                Link {
+                                    class: "group",
+                                    to: Route::LoadingPreview,
+                                    "loading"
+                                }
+                            }
+                        }
+                    }
+                    li {
+                        h2 { class: "menu-title flex items-center gap-4 px-1.5",
+                            "Data Input"
+                        }
+                        ul {
+                            li {
+                                Link {
+                                    class: "group",
+                                    to: Route::InputPreview,
+                                    "Input"
+                                }
+                            }
+                            li {
+                                Link {
+                                    class: "group",
+                                    to: Route::FieldsetPreview,
+                                    "Fieldset"
+                                }
+                            }
+                        }
+                    }
                 }
+                div { class: "bg-base-100 pointer-events-none sticky bottom-0 flex h-40 [mask-image:linear-gradient(transparent,#000000)]" }
+            }
+        }
+    }
+}
+
+#[component]
+fn MenuItem(title: &'static str, to: Route) -> Element {
+    rsx! {
+        li {
+            Link {
+                class: "group",
+                to,
+                title
             }
         }
     }

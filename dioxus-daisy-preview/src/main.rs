@@ -29,7 +29,10 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: asset!("/assets/tailwind.css") }
         document::Link { rel: "stylesheet", href: asset!("/assets/daisyui.css") }
         document::Link { rel: "stylesheet", href: asset!("/assets/themes.css") }
-        body { "data-theme": ACTIVE_THEME.resolve(), Router::<Route> {} }
+        body {
+            "data-theme": ACTIVE_THEME.resolve(),
+             Router::<Route> {}
+        }
     }
 }
 

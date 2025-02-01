@@ -11,6 +11,8 @@ pub enum Route {
     ButtonPreview,
     #[route("/loading")]
     LoadingPreview,
+    #[route("/fieldset")]
+    FieldsetPreview,
+    #[route("/input")]
+    InputPreview,
 }
-
-impl Route {}
