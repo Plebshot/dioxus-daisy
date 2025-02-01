@@ -1,0 +1,2 @@
+#!/bin/bash
+dx serve --platform desktop --port 8080 --always-on-top false $@

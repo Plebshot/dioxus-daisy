@@ -1,0 +1,26 @@
+[workspace]
+members = [
+    "dioxus-daisy",
+    "dioxus-daisy-macros",
+    "dioxus-daisy-preview",
+    "dioxus-daisy-preview",
+]
+resolver = "2"
+
+[workspace.dependencies]
+dioxus-daisy = { path = "dioxus-daisy" }
+dioxus-daisy-macros = { path = "dioxus-daisy-macros" }
+dioxus-daisy-preview = { path = "dioxus-daisy-preview" }
+dioxus = { version = "0.6.2", features = ["router"] }
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"

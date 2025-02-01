@@ -1,0 +1,4 @@
+#!/bin/bash
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+source $SCRIPT_DIR/setup-env
+emulator -avd Pixel_9_API_35  -netdelay none -netspeed full

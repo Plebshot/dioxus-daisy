@@ -1,0 +1,21 @@
+[package]
+name = "dioxus-daisy-preview"
+version = "0.1.0"
+edition = "2021"
+authors = ["Plebshot"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dioxus = { workspace = true }
+dioxus-daisy = { workspace = true }
+convert_case = "0.7"
+dioxus-autofmt = "0.6.2"
+dioxus-ssr = "0.6.2"
+tracing = "0.1"
+
+[features]
+default = ["web"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
