@@ -17,7 +17,7 @@ pub fn Loading(
     size: Option<Size>,
     style: Option<LoadingStyle>,
     color: Option<Color>,
-    #[props(extends = GlobalAttributes, extends = button)] attributes: Vec<Attribute>,
+    #[props(extends = GlobalAttributes, extends = span)] attributes: Vec<Attribute>,
     children: Element,
 ) -> Element {
     rsx! {
