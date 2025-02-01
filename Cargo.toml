@@ -1,8 +1,6 @@
 [workspace]
 members = [
     "dioxus-daisy",
-    "dioxus-daisy-macros",
-    "dioxus-daisy-preview",
     "dioxus-daisy-preview",
 ]
 resolver = "2"

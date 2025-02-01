@@ -1,11 +1,8 @@
 use dioxus::prelude::*;
 
-use crate::{
-    attributes::{Color, Size},
-    css_class, merge_class,
-};
+use crate::attributes::{Color, Size};
 
-#[css_class(prefix = "btn-")]
+#[derive(Clone, PartialEq)]
 pub enum ButtonStyle {
     Outline,
     Dash,
@@ -16,7 +13,7 @@ pub enum ButtonStyle {
     Disabled,
 }
 
-#[css_class(prefix = "btn-")]
+#[derive(Clone, PartialEq)]
 pub enum ButtonModifier {
     Wide,
     Block,
@@ -37,10 +34,31 @@ pub fn Button(
     #[props(extends = GlobalAttributes, extends = button)] attributes: Vec<Attribute>,
     children: Element,
 ) -> Element {
-    let class = merge_class!("btn", color => "btn-{}", size => "btn-{}", style, modifier);
     rsx! {
         button {
-            class,
+            class: "btn",
+            class: if let Some(ButtonStyle::Outline) = style {"btn-outline"},
+            class: if let Some(ButtonStyle::Dash) = style {"btn-dash"},
+            class: if let Some(ButtonStyle::Soft) = style {"btn-soft"},
+            class: if let Some(ButtonStyle::Ghost) = style {"btn-ghost"},
+            class: if let Some(ButtonStyle::Link) = style {"btn-link"},
+            class: if let Some(ButtonStyle::Active) = style {"btn-active"},
+            class: if let Some(ButtonStyle::Disabled) = style {"btn-disabled"},
+            class: if let Some(ButtonModifier::Wide) = modifier {"btn-wide"},
+            class: if let Some(ButtonModifier::Block) = modifier {"btn-block"},
+            class: if let Some(ButtonModifier::Square) = modifier {"btn-square"},
+            class: if let Some(ButtonModifier::Circle) = modifier {"btn-circle"},
+            class: if let Some(Size::Xs) = size {"btn-xs"},
+            class: if let Some(Size::Sm) = size {"btn-sm"},
+            class: if let Some(Size::Md) = size {"btn-md"},
+            class: if let Some(Size::Lg) = size {"btn-lg"},
+            class: if let Some(Size::Xl) = size {"btn-xl"},
+            class: if let Some(Color::Primary) = color {"btn-primary"},
+            class: if let Some(Color::Secondary) = color {"btn-secondary"},
+            class: if let Some(Color::Success) = color {"btn-success"},
+            class: if let Some(Color::Accent) = color {"btn-danger"},
+            class: if let Some(Color::Warning) = color {"btn-warning"},
+            class: if let Some(Color::Info) = color {"btn-info"},
             onclick: move |event| {
                 if let Some(handler) = onclick {
                     handler(event);

@@ -1,6 +1,4 @@
-use crate::css_class;
-
-#[css_class]
+#[derive(Clone, PartialEq)]
 pub enum Size {
     Xs,
     Sm,
@@ -9,7 +7,7 @@ pub enum Size {
     Xl,
 }
 
-#[css_class]
+#[derive(Clone, PartialEq)]
 pub enum Color {
     Neutral,
     Primary,

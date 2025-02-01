@@ -5,5 +5,4 @@ edition = "2021"
 authors = ["Plebshot"]
 
 [dependencies]
-dioxus-daisy-macros = { workspace = true }
 dioxus = { workspace = true }
